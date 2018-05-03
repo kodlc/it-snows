@@ -52,9 +52,9 @@ end
 
 function snowFloat(flake, dt)
 	local currentdir = flake.dir
-	flake.x = lerp(flake.x, flake.x + currentdir * flake.speed/2, dt)
+	local flakeX = lerp(flake.x, flake.x + currentdir * flake.speed/2, dt)
 	
-	return flake.x
+	return flakeX
 end
 
 -- add snow
@@ -62,11 +62,12 @@ end
     if y > 0 then 
    		maxsnow = maxsnow + 1
    	elseif y < 0 then
-     	maxsnow = maxsnow - 1
+     		maxsnow = maxsnow - 1
    	end
 end
 
--- linear interpolation
+-- linear interpolation formula
+-- (not entirely sure if it actually changes anything in this example but there you go)
 function lerp(a, b, t)
     return a + (b - a) * t
 end
